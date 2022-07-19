@@ -60,3 +60,4 @@ rogue.levelUp();
 
 // will see a string in the console that contains all four stats of rogue
 rogue.printStats();
+

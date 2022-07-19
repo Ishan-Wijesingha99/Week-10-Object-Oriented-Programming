@@ -9,23 +9,37 @@ function Student(first, last, age) {
   // Method that will simulate method overloading in JavaScript
   this.displayGrade = function (grade) {
     const input = grade;
+
+    // guard clause, if input is not valid
     if (!input) {
       throw new Error('no grade provided');
+      return
     }
-    let response;
+    
     // Return a letter grade if a number grade was passed
-    // Ex. 95 => 'A'
     if (typeof input === 'number') {
-      // TODO: Add logic here to return a single letter grade
-      return response;
+
+      if(input <= 100 && input >= 90) {
+        return 'A'
+      } else if(input < 90 && input >= 80) {
+        return 'B'
+      }
+
     }
+    
     // Return a range if a letter grade was passed
-    // Ex. 'A' => '90 - 100'
     if (typeof input === 'string') {
-      // TODO: Add logic here to return range as a string
-      return response;
+      
+      if(input === 'A') {
+        return '90-100'
+      } else if(input === 'B') {
+        return '80-89'
+      }
+      
     }
+
   };
+
 }
 
 const John = new Student('John', 'Appleseed', '30');
