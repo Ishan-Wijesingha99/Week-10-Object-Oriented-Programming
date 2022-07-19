@@ -1,4 +1,4 @@
-// TODO: Add a comment describing what kind of function this is
+// constructor function
 function Character(name, type, age, strength, hitpoints) {
   this.name = name;
   this.type = type;
@@ -7,7 +7,8 @@ function Character(name, type, age, strength, hitpoints) {
   this.hitpoints = hitpoints;
 }
 
-// TODO: Add a comment describing the purpose of `.prototype` in this method declaration
+// while you technically can give a method to each instance of a constructor simply by writing that method inside the constructor, this is inefficient, you'll be repeatedly redefining the same function over and over again
+// instead, just add that function to the instance's prototype. That way, they get access to it through prototypal inheritance
 Character.prototype.printStats = function () {
   console.log(
     `Name: ${this.name}\nProfession: ${this.type}\nAge: ${this.age}\nStrength: ${this.strength}\nHitPoints: ${this.hitpoints}`
@@ -15,7 +16,7 @@ Character.prototype.printStats = function () {
   console.log('\n-------------\n');
 };
 
-// TODO: Add a comment describing the functionality of this method
+// adding another function to prototype of each instance that comes from Character constructor
 Character.prototype.isAlive = function () {
   if (this.hitpoints > 0) {
     console.log(`${this.name} is still alive!`);
@@ -26,33 +27,36 @@ Character.prototype.isAlive = function () {
   return false;
 };
 
-// TODO: Add a comment describing the functionality of this method
+// adding another function to prototype of each instance that comes from Character constructor
 Character.prototype.attack = function (character2) {
   character2.hitpoints -= this.strength;
 };
 
-// TODO: Add a comment describing the functionality of this method
+// adding another function to prototype of each instance that comes from Character constructor
 Character.prototype.levelUp = function () {
   this.age += 1;
   this.strength += 5;
   this.hitpoints += 25;
 };
 
+// creating two instances from the Character constructor
 const warrior = new Character('Crusher', 'Warrior', 25, 10, 75);
 const rogue = new Character('Dodger', 'Rogue', 23, 20, 50);
 
+// these instances get access to these methods through prototypal inheritance
 warrior.printStats();
 rogue.printStats();
 
 rogue.attack(warrior);
 
-// TODO: Add a comment describing what you expect to see printed in the console
+// will see a string in the console that contains all four stats of warrior
 warrior.printStats();
 
-// TODO: Add a comment describing what you expect to see printed in the console
+// will see a string in the console that says warrior is alive
 warrior.isAlive();
 
+// will increase age, strength and hitpoints of rogue object
 rogue.levelUp();
 
-// TODO: Add a comment describing what you expect to see printed in the console
+// will see a string in the console that contains all four stats of rogue
 rogue.printStats();
