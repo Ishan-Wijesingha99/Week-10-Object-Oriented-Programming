@@ -1,12 +1,15 @@
+// exporting modules
 const Child = require("./child");
 const DayCare = require("./dayCare");
 
+// constructor functions
 const child1 = new Child("Tammer", 3);
 const child2 = new Child("Alec", 1);
 const child3 = new Child("Lisa", 2);
 
 const dayCare = new DayCare();
 
+// calling methods
 dayCare.addChild(child1);
 dayCare.addChild(child2);
 dayCare.addChild(child3);
