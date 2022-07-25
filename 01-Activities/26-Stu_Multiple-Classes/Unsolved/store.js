@@ -9,8 +9,11 @@ class Store {
     this.stock.forEach((item) => {
       if (item.name === name) {
         if (item.count > 0) {
-          // TODO: Decrement the store's stock of item
-          // TODO: Increase the store's revenue
+          // Decrement the store's stock of item
+          // this.stock--;
+          // Increase the store's revenue
+          this.revenue = this.revenue + item.price
+
           console.log(`Purchased ${item.name} for ${item.price}`);
         } else {
           console.log(`Sorry, ${item.name} is out of stock!`);
@@ -22,7 +25,8 @@ class Store {
   replenishStock(name, count) {
     this.stock.forEach((item) => {
       if (item.name === name) {
-        // TODO: Increase the store's stock of item
+        // Increase the store's stock of item
+        
         console.log(`Replenished ${item.name} by ${item.count}`);
       }
     });
@@ -37,4 +41,4 @@ class Store {
   }
 }
 
-module.exports = Store;
+module.exports = {Store};

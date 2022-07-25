@@ -1,5 +1,5 @@
-const Store = require('./store');
-const { toys } = require('./toy');
+const {Store} = require('./store');
+const { toysArray } = require('./toy');
 
 const store = new Store("Big Al's Toy Barn", toys);
 

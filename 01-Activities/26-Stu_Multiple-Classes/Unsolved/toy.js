@@ -1,4 +1,4 @@
-class Toy {
+class ToyClass {
   constructor(name, price, count) {
     this.name = name;
     this.price = price;
@@ -6,12 +6,12 @@ class Toy {
   }
 }
 
-const toys = [
-  new Toy('Action Figure', 14.99, 5),
-  new Toy('Rare Toy', 17.99, 1),
+const toysArray = [
+  new ToyClass('Action Figure', 14.99, 5),
+  new ToyClass('Rare Toy', 17.99, 1),
 ];
 
 module.exports = {
-  Toy,
-  toys,
+  ToyClass,
+  toysArray,
 };
